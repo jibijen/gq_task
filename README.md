@@ -14,9 +14,18 @@ Help traders better understand order placement timing and execution by simulatin
 
 The app integrates live WebSocket feeds from the following exchanges:
 
-- **OKX** – [API Docs](https://www.okx.com/docs-v5/)
-- **Bybit** – [API Docs](https://bybit-exchange.github.io/docs/v5/intro)
-- **Deribit** – [API Docs](https://docs.deribit.com/)
+- **OKX** – [API Docs](https://www.okx.com/docs-v5/):-
+   Provides real-time market data through WebSocket for order books, trades, tickers, etc.
+   We subscribe to books and tickers channels for accurate bid-ask updates.
+   Robust API with low-latency feed, used primarily for spot and futures markets.
+- **Bybit** – [API Docs](https://bybit-exchange.github.io/docs/v5/intro):-
+  Offers both public (market data) and private (user-specific) WebSocket endpoints.
+  We use public WebSocket channels to stream order book depth, tickers, and trades.
+  Suitable for derivatives as well as spot trading scenarios.
+- **Deribit** – [API Docs](https://docs.deribit.com/):-
+  Specialized in options and futures trading on crypto assets.
+  Provides detailed and granular data over WebSocket (e.g., Greeks, volatility, etc.).
+  We connect to their book and trades streams to track real-time price movement.
 
 Real-time updates are handled via WebSocket streams. Fallback mechanisms using HTTP polling are in place for robustness.
 
@@ -27,7 +36,7 @@ Real-time updates are handled via WebSocket streams. Fallback mechanisms using H
 - **Next.js** (React-based framework)
 - **WebSocket API** (real-time data)
 - **Custom React Hooks** for state and data flow
-- **Charting Libraries** (for market depth and price impact)
+- **Charting Libraries**(chart.js) (for market depth and price impact)
 - **Tailwind CSS / Responsive UI** (assumed)
 
 ---
@@ -47,6 +56,7 @@ components/
 └── useOrderBook.js // WebSocket + rate limiting logic ```
 
 page.js // Entry point
+```
 
 ---
 
@@ -85,9 +95,12 @@ page.js // Entry point
 ## ⚙️ Handling Rate Limits
 
 Implemented in `hooks/useOrderBook.js`:
-- Uses exchange-specific limits (e.g., 10 req/sec for OKX)
-- Fallback polling for failed WebSocket
-- Throttling and exponential backoff on HTTP retries
+• Real-time orderbook data is fetched using native WebSocket connections for OKX, Bybit, and Deribit.
+• Exchange-specific ping requirements are implemented to keep connections alive and comply with rate limits:
+  - OKX: ping every 25s
+  - Bybit: JSON ping every 20s
+  - Deribit: public/test ping every 30s
+• Reconnect logic exists on connection failure, with proper cleanup on unmount.
 
 ---
 
