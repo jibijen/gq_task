@@ -34,19 +34,7 @@ Real-time updates are handled via WebSocket streams. Fallback mechanisms using H
 
 ## 📁 Project Structure (Important Files)
 
-components/
-│
-├── OrderBookClientView.js // Unified view per venue
-├── OrderBookTable.js // Table representation
-├── AddQuantityModal.js // Simulation Modals
-├── SimulationForm.js // Order simulation form
-├── DepthChart.js // Optional depth chart
-├── OrderImbalanceIndicator.js // Imbalance metrics
-├── OrdersPage.js // Main trading interface
-└── ... // Other supporting components
-
-hooks/
-└── useOrderBook.js // WebSocket + rate limiting logic
+<pre> ``` components/ │ ├── OrderBookClientView.js // Unified view per venue ├── OrderBookTable.js // Table representation ├── AddQuantityModal.js // Simulation Modals ├── SimulationForm.js // Order simulation form ├── DepthChart.js // Optional depth chart ├── OrderImbalanceIndicator.js // Imbalance metrics ├── OrdersPage.js // Main trading interface └── ... // Other supporting components hooks/ └── useOrderBook.js // WebSocket + rate limiting logic ``` </pre>
 
 page.js // Entry point
 
