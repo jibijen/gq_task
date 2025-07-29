@@ -1,3 +1,40 @@
+# 🚀 GoQuant Orderbook Simulator
+
+A real-time, multi-venue cryptocurrency **Orderbook Viewer & Simulation Tool** built using **Next.js**. This tool enables users to visualize live orderbooks from OKX, Bybit, and Deribit, simulate order placement, and evaluate potential **market impact** and **execution slippage**.
+
+---
+
+## 🧠 Objective
+
+Help traders better understand order placement timing and execution by simulating their orders in live orderbooks across multiple crypto exchanges.
+
+---
+
+## 🌐 Live API Integrations
+
+The app integrates live WebSocket feeds from the following exchanges:
+
+- **OKX** – [API Docs](https://www.okx.com/docs-v5/)
+- **Bybit** – [API Docs](https://bybit-exchange.github.io/docs/v5/intro)
+- **Deribit** – [API Docs](https://docs.deribit.com/)
+
+Real-time updates are handled via WebSocket streams. Fallback mechanisms using HTTP polling are in place for robustness.
+
+---
+
+## 📦 Tech Stack
+
+- **Next.js** (React-based framework)
+- **WebSocket API** (real-time data)
+- **Custom React Hooks** for state and data flow
+- **Charting Libraries** (for market depth and price impact)
+- **Tailwind CSS / Responsive UI** (assumed)
+
+---
+
+## 📁 Project Structure (Important Files)
+
+
 
 ---
 
