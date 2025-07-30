@@ -33,7 +33,7 @@ The app integrates live WebSocket feeds from the following exchanges:
   Provides detailed and granular data over WebSocket (e.g., Greeks, volatility, etc.).
   We connect to their book and trades streams to track real-time price movement.
 
-Real-time updates are handled via WebSocket streams. Fallback mechanisms using HTTP polling are in place for robustness.
+Real-time updates are handled via WebSocket streams. 
 
 ---
 
